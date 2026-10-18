@@ -24,6 +24,7 @@ import android.content.ClipData
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -32,6 +33,7 @@ import androidx.core.content.FileProvider
 import org.love2d.android.games.EngineVersion
 import org.love2d.android.games.Game
 import org.love2d.android.games.GameLibraryViewModel
+import org.love2d.android.games.ShaderCompat
 import org.love2d.android.ui.GameLibraryScreen
 import org.love2d.android.ui.theme.LoveAndroidTheme
 
@@ -73,10 +75,20 @@ class MainActivity : ComponentActivity() {
         }
 
         val targetPackage = engine.packageName ?: return
+        Toast.makeText(this, R.string.shader_compat_preparing, Toast.LENGTH_SHORT).show()
+        Thread {
+            val prepared = ShaderCompat.prepare(this, game)
+            runOnUiThread {
+                startEngine(targetPackage, engine, prepared)
+            }
+        }.start()
+    }
+
+    private fun startEngine(targetPackage: String, engine: EngineVersion, gameFile: java.io.File) {
         val uri = FileProvider.getUriForFile(
             this,
             "$packageName.enginefiles",
-            game.file,
+            gameFile,
         )
         val intent = Intent(Intent.ACTION_VIEW).apply {
             setDataAndType(uri, "application/x-love-game")

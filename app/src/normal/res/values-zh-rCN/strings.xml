@@ -92,4 +92,5 @@
     <string name="about_luajit_summary">Lua 运行时</string>
     <string name="about_openal_summary">3D 音频</string>
     <string name="about_freetype_summary">字体渲染</string>
+    <string name="shader_compat_preparing">正在准备兼容着色器…</string>
 </resources>
