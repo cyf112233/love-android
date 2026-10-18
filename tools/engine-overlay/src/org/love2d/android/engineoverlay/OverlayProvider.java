@@ -16,6 +16,12 @@ public final class OverlayProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {
+        SaveRepair.repair(getContext());
+        try {
+            System.loadLibrary("shaderfix");
+        } catch (Throwable t) {
+            android.util.Log.e("OverlayProvider", "shaderfix load failed", t);
+        }
         Application app = (Application) getContext().getApplicationContext();
         app.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() {
             @Override

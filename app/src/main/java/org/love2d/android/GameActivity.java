@@ -42,6 +42,7 @@ import androidx.annotation.Keep;
 import androidx.core.app.ActivityCompat;
 
 import org.libsdl.app.SDLActivity;
+import org.love2d.android.games.SaveRepair;
 import org.love2d.android.touch.TouchControlsOverlay;
 
 import java.io.FileNotFoundException;
@@ -97,6 +98,7 @@ public class GameActivity extends SDLActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "started");
+        SaveRepair.INSTANCE.repair(this);
         isFused = hasEmbeddedGame();
         args = new String[0];
 
