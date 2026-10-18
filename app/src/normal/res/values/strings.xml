@@ -91,4 +91,5 @@
     <string name="about_luajit_summary">Lua runtime</string>
     <string name="about_openal_summary">3D audio</string>
     <string name="about_freetype_summary">Font rendering</string>
+    <string name="shader_compat_preparing">Preparing shader compatibility…</string>
 </resources>
