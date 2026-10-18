@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- .love files live in Android/data/<package>/files/games -->
+    <external-files-path name="games" path="games/" />
+</paths>

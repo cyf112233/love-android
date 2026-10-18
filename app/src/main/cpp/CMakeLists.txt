@@ -22,6 +22,9 @@ cmake_minimum_required(VERSION 3.21)
 
 project(love-android LANGUAGES C CXX)
 
+# Select OpenSL ES before OpenAL initializes on devices where AAudio hangs.
+add_library(audiofix SHARED audiofix.c)
+
 add_custom_target(love_android)
 set(LOVE_ANDROID 1)
 

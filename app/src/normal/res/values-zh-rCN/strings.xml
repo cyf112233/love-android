@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="library_title">游戏库</string>
+    <string name="library_subtitle">LÖVE for Android</string>
+
+    <string name="import_game">导入游戏</string>
+    <string name="import_hint">支持 .love / .zip / .exe，统一转为 .love</string>
+    <string name="my_games">我的游戏 · %1$d</string>
+    <string name="no_games">还没有游戏</string>
+    <string name="no_games_info">导入 .love、.zip 或 .exe 文件，导入后会自动转换为 .love 格式。</string>
+
+    <string name="more">更多</string>
+    <string name="refresh">刷新</string>
+    <string name="delete">删除</string>
+    <string name="delete_game">删除游戏</string>
+    <string name="delete_confirm_title">删除「%1$s」？</string>
+    <string name="delete_confirm_summary">游戏文件将从设备中永久删除，此操作无法撤销。</string>
+    <string name="cancel">取消</string>
+    <string name="ok">好</string>
+    <string name="close">关闭</string>
+
+    <string name="game_menu_title">游戏菜单</string>
+    <string name="touch_controls_enable">启用触控键位</string>
+    <string name="touch_controls_enable_summary">在游戏画面上显示摇杆和按键</string>
+    <string name="touch_controls_edit">编辑键位</string>
+    <string name="touch_controls_edit_summary">拖动、添加、删除，调整大小、颜色、透明度和触发键</string>
+    <string name="exit_game">退出游戏</string>
+    <string name="exit_game_confirm_title">退出游戏？</string>
+    <string name="exit_game_confirm_summary">未保存的游戏进度可能会丢失。</string>
+
+    <string name="error_title">出错了</string>
+    <string name="importing_title">正在导入…</string>
+    <string name="importing_summary">正在把文件复制到游戏目录，并统一转换为 .love 格式。</string>
+    <string name="import_success">已导入「%1$s」</string>
+    <string name="delete_success">已删除「%1$s」</string>
+    <string name="delete_failed">删除失败，请稍后重试。</string>
+    <string name="error_scan_failed">无法读取游戏目录。%1$s</string>
+
+    <string name="import_error_unsupported">仅支持导入 .love、.zip、.exe 文件。</string>
+    <string name="import_error_no_main_lua">压缩包根目录没有 main.lua，不是有效的 LÖVE 游戏。</string>
+    <string name="import_error_exe_no_game">没有在这个 .exe 中找到内嵌的游戏数据。</string>
+    <string name="import_error_read">无法读取选中的文件。</string>
+    <string name="import_error_io">无法把游戏复制到游戏目录。</string>
+    <string name="import_error_no_picker">设备上没有可用的文件选择器。</string>
+    <string name="import_error_no_space">存储空间不足，无法导入这个游戏。</string>
+
+    <string name="game_info">游戏信息</string>
+    <string name="game_info_type">类型</string>
+    <string name="game_info_size">大小</string>
+    <string name="game_info_modified">修改时间</string>
+    <string name="game_info_path">路径</string>
+    <string name="game_type_love">LÖVE 游戏（.love）</string>
+    <string name="game_type_folder">未打包文件夹</string>
+
+    <string name="engine_version">引擎版本</string>
+    <string name="engine_current">当前</string>
+    <string name="engine_built_in">已内置</string>
+    <string name="engine_pack">引擎包</string>
+    <string name="engine_unavailable">%1$s 不可用</string>
+    <string name="engine_launch_failed">无法启动 %1$s</string>
+
+    <string name="launch_nogame">启动空白游戏</string>
+    <string name="game_folder">游戏目录</string>
+    <string name="game_folder_location">游戏目录位于内部存储的 Android/data/%1$s/files/games。</string>
+    <string name="game_folder_accessible">你可以用任意文件管理器访问该目录。</string>
+    <string name="game_folder_inaccessible">很遗憾，该目录只能通过电脑的 MTP 访问。</string>
+
+    <string name="about">关于</string>
+    <string name="version_info">版本 %1$s</string>
+    <string name="copyright">Copyright © 2006–2024 LÖVE Development Team</string>
+    <string name="official_website">官方网站</string>
+
+    <string name="rename_game">重命名游戏</string>
+    <string name="rename_game_summary">只修改显示名称，不会重命名 .love 文件。</string>
+    <string name="rename_game_label">游戏名称</string>
+    <string name="rename_game_empty">名称不能为空。</string>
+    <string name="rename_success">已重命名为“%1$s”</string>
+    <string name="save">保存</string>
+
+    <string name="about_app_name">LÖVE for Android</string>
+    <string name="about_description">基于 Miuix 的 LÖVE 游戏库，支持导入 .love、.zip、.exe，并使用 LÖVE 12.0 / 11.5 / 0.10.2 运行。</string>
+    <string name="about_projects">采用的项目</string>
+    <string name="about_components">开源组件</string>
+    <string name="about_main_project">love-android（主项目）</string>
+    <string name="about_engine_packs">LÖVE for Android 引擎包</string>
+    <string name="about_love_summary">游戏引擎与运行时</string>
+    <string name="about_miuix_summary">HyperOS 风格 Compose UI 组件库</string>
+    <string name="about_engine_packs_summary">11.5 / 0.10.2 引擎包基于官方 Android 版本重打包</string>
+    <string name="about_compose_summary">Android 声明式 UI 工具包</string>
+    <string name="about_kotlin_summary">Kotlin 编程语言</string>
+    <string name="about_sdl_summary">窗口、输入与平台集成</string>
+    <string name="about_luajit_summary">Lua 运行时</string>
+    <string name="about_openal_summary">3D 音频</string>
+    <string name="about_freetype_summary">字体渲染</string>
+</resources>

@@ -1,16 +1,94 @@
 <resources>
-    <string name="version_info">Version %1$s</string>
-    <string name="copyright">Copyright © 2006–2024 LÖVE Development Team</string>
-    <string name="disclaimer">This software is provided \'as-is\', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.</string>
-    <string name="official_website">Official Website</string>
-    <string name="no_games">No Games :(</string>
-    <string name="no_games_info">Looks like there are no LÖVE games found in the games folder. See the \"Game Folder\" in the options menu for more information.</string>
-    <string name="open_love_file">Open .love File</string>
+    <string name="library_title">Game Library</string>
+    <string name="library_subtitle">LÖVE for Android</string>
+
+    <string name="import_game">Import game</string>
+    <string name="import_hint">.love, .zip or .exe — always saved as .love</string>
+    <string name="my_games">My games · %1$d</string>
+    <string name="no_games">No games yet</string>
+    <string name="no_games_info">Import a .love, .zip or .exe file. Every import is converted to a .love archive automatically.</string>
+
+    <string name="more">More</string>
+    <string name="refresh">Refresh</string>
+    <string name="delete">Delete</string>
+    <string name="delete_game">Delete game</string>
+    <string name="delete_confirm_title">Delete “%1$s”?</string>
+    <string name="delete_confirm_summary">The game file will be permanently removed from this device. This cannot be undone.</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="close">Close</string>
+
+    <string name="game_menu_title">Game menu</string>
+    <string name="touch_controls_enable">Touch controls</string>
+    <string name="touch_controls_enable_summary">Show the on-screen joystick and buttons</string>
+    <string name="touch_controls_edit">Edit touch controls</string>
+    <string name="touch_controls_edit_summary">Drag, add or delete controls; adjust size, colour, alpha and keys</string>
+    <string name="exit_game">Exit game</string>
+    <string name="exit_game_confirm_title">Exit the game?</string>
+    <string name="exit_game_confirm_summary">Unsaved progress may be lost.</string>
+
+    <string name="error_title">Something went wrong</string>
+    <string name="importing_title">Importing…</string>
+    <string name="importing_summary">Copying the file into the games folder and converting it to .love.</string>
+    <string name="import_success">Imported “%1$s”</string>
+    <string name="delete_success">Deleted “%1$s”</string>
+    <string name="delete_failed">Could not delete the game.</string>
+    <string name="error_scan_failed">Could not read the games folder. %1$s</string>
+
+    <string name="import_error_unsupported">Only .love, .zip and .exe files can be imported.</string>
+    <string name="import_error_no_main_lua">This archive has no main.lua at its root, so it is not a valid LÖVE game.</string>
+    <string name="import_error_exe_no_game">No embedded game data was found in this .exe file.</string>
+    <string name="import_error_read">Could not read the selected file.</string>
+    <string name="import_error_io">Could not copy the game into the games folder.</string>
+    <string name="import_error_no_picker">No file picker app is available on this device.</string>
+    <string name="import_error_no_space">Not enough free space to import this game.</string>
+
+    <string name="game_info">Game info</string>
+    <string name="game_info_type">Type</string>
+    <string name="game_info_size">Size</string>
+    <string name="game_info_modified">Last modified</string>
+    <string name="game_info_path">Path</string>
+    <string name="game_type_love">LÖVE game (.love)</string>
+    <string name="game_type_folder">Unpacked folder</string>
+
+    <string name="engine_version">Engine version</string>
+    <string name="engine_current">Current</string>
+    <string name="engine_built_in">Built in</string>
+    <string name="engine_pack">Engine pack</string>
+    <string name="engine_unavailable">%1$s is not available</string>
+    <string name="engine_launch_failed">Could not launch %1$s</string>
+
     <string name="launch_nogame">Launch No-Game</string>
     <string name="game_folder">Game Folder</string>
-    <string name="about">About</string>
-    <string name="ok">OK</string>
     <string name="game_folder_location">The game folder is located in your internal storage at Android/data/%1$s/files/games.</string>
     <string name="game_folder_accessible">The folder should be accessible with your favorite file manager.</string>
     <string name="game_folder_inaccessible">Unfortunately the folder is only accessible through MTP in PC.</string>
+
+    <string name="about">About</string>
+    <string name="version_info">Version %1$s</string>
+    <string name="copyright">Copyright © 2006–2024 LÖVE Development Team</string>
+    <string name="official_website">Official Website</string>
+
+    <string name="rename_game">Rename game</string>
+    <string name="rename_game_summary">Display name only; the .love file is not renamed.</string>
+    <string name="rename_game_label">Game name</string>
+    <string name="rename_game_empty">Name cannot be empty.</string>
+    <string name="rename_success">Renamed to “%1$s”</string>
+    <string name="save">Save</string>
+
+    <string name="about_app_name">LÖVE for Android</string>
+    <string name="about_description">A Miuix game library for LÖVE. Imports .love, .zip and .exe games and runs them with LÖVE 12.0, 11.5 or 0.10.2.</string>
+    <string name="about_projects">Projects used</string>
+    <string name="about_components">Open-source components</string>
+    <string name="about_main_project">love-android (main project)</string>
+    <string name="about_engine_packs">LÖVE for Android engine packs</string>
+    <string name="about_love_summary">Game engine and runtime</string>
+    <string name="about_miuix_summary">HyperOS-style Compose UI library</string>
+    <string name="about_engine_packs_summary">LÖVE 11.5 / 0.10.2 packs repackaged from the official Android builds</string>
+    <string name="about_compose_summary">Declarative Android UI toolkit</string>
+    <string name="about_kotlin_summary">Kotlin programming language</string>
+    <string name="about_sdl_summary">Window, input and platform integration</string>
+    <string name="about_luajit_summary">Lua runtime</string>
+    <string name="about_openal_summary">3D audio</string>
+    <string name="about_freetype_summary">Font rendering</string>
 </resources>

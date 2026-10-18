@@ -36,11 +36,13 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DisplayCutout;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Keep;
 import androidx.core.app.ActivityCompat;
 
 import org.libsdl.app.SDLActivity;
+import org.love2d.android.touch.TouchControlsOverlay;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -59,6 +61,7 @@ public class GameActivity extends SDLActivity {
     private Uri delayedUri = null;
     private String[] args;
     private boolean isFused;
+    private TouchControlsOverlay touchControlsOverlay;
 
     private static native void nativeSetDefaultStreamValues(int sampleRate, int framesPerBurst);
 
@@ -77,6 +80,7 @@ public class GameActivity extends SDLActivity {
         return new String[]{
             "c++_shared",
             "SDL3",
+            "audiofix",
             "oboe",
             "openal",
             "luajit",
@@ -111,6 +115,8 @@ public class GameActivity extends SDLActivity {
             return;
         }
 
+        installTouchControlsOverlay();
+
         // Set low-latency audio values
         nativeSetDefaultStreamValues(getAudioFreq(), getAudioSMP());
 
@@ -133,8 +139,47 @@ public class GameActivity extends SDLActivity {
         handleIntent(intent, false);
     }
 
+    private void installTouchControlsOverlay() {
+        // The touch overlay and its menu only exist in the normal (launcher)
+        // flavor. Embed builds keep the original plain game activity.
+        try {
+            Class.forName("org.love2d.android.GameMenuActivity");
+        } catch (ClassNotFoundException e) {
+            return;
+        }
+
+        android.view.ViewGroup content = findViewById(android.R.id.content);
+        if (content == null) {
+            return;
+        }
+
+        touchControlsOverlay = new TouchControlsOverlay(this);
+        content.addView(
+            touchControlsOverlay,
+            new FrameLayout.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT
+            )
+        );
+        GameSession.attach(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (touchControlsOverlay != null) {
+            touchControlsOverlay.onHostResume();
+        }
+    }
+
     @Override
     protected void onDestroy() {
+        if (touchControlsOverlay != null) {
+            touchControlsOverlay.release();
+            touchControlsOverlay = null;
+        }
+        GameSession.detach(this);
+
         if (vibrator != null) {
             Log.d(TAG, "Cancelling vibration");
             vibrator.cancel();
@@ -145,6 +190,9 @@ public class GameActivity extends SDLActivity {
 
     @Override
     protected void onPause() {
+        if (touchControlsOverlay != null) {
+            touchControlsOverlay.onHostPause();
+        }
         if (vibrator != null) {
             Log.d(TAG, "Cancelling vibration");
             vibrator.cancel();

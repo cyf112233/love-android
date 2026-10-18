@@ -1,3 +1,30 @@
+# LÖVE for Android · Miuix
+
+A fork of [love-android](https://github.com/love2d/love-android) with a
+[Miuix](https://github.com/compose-miuix-ui/miuix) game library.
+
+Main project: **https://github.com/cyf112233/love-android**
+
+Features:
+
+- Import `.love`, `.zip` and `.exe` games (polyglot Windows builds included);
+  every import is stored as a normal `.love` archive.
+- Built-in LÖVE 12.0 runner for this launcher, with optional LÖVE 11.5 and
+  0.10.2 engine packs.
+- Per-game engine selection, renaming and game information.
+- In-game floating ball with a game menu, an on-screen joystick (8 directions),
+  ESC and Z/X/C buttons, plus an edit mode for position, size, colour,
+  opacity and key mapping.
+- OpenSL ES audio fallback for devices where AAudio stays idle.
+- Miuix about page with the projects and open-source components used.
+
+## License
+
+This fork is released under the **zlib/libpng license**; see [LICENSE](LICENSE).
+LÖVE, love-android, Miuix and the other dependencies keep their own licenses.
+
+---
+
 Android Port of LÖVE, an awesome 2D game engine for Lua (http://love2d.org)  
 Copyright (c) 2006-2024 LOVE Development Team
 
@@ -16,7 +43,7 @@ If you want to build from source, make sure to clone the submodules too. Often e
 liblove.so and "Missing LÖVE" error when building. A proper way to clone this repository is:
 
 ```
-git clone --recurse-submodules https://github.com/love2d/love-android
+git clone --recurse-submodules https://github.com/cyf112233/love-android
 ```
 
 Add `-b <branch/tag name>` and `--depth 1` if needed.

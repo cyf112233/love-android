@@ -2,17 +2,32 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <queries>
+        <package android:name="org.love2d.android.engine11" />
+        <package android:name="org.love2d.android.engine010" />
+    </queries>
+
     <application android:icon="@drawable/love">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.AppCompat.DayNight">
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
+            android:name=".GameMenuActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.LoveAndroid.GameMenu" />
         <!--
             Important: GameActivity class name MUST be explicitly written as
             "org.love2d.android.GameActivity" without any shortcuts.
@@ -20,17 +35,12 @@
         <activity
             android:name="org.love2d.android.GameActivity"
             android:exported="false"
-            tools:replace="android:exported">
-            <intent-filter tools:node="removeAll" />
+            android:launchMode="singleTask"
+            tools:replace="android:exported,android:launchMode">            <intent-filter tools:node="removeAll" />
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".AboutActivity"
-            android:exported="false"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.AppCompat.DayNight" />
         <provider
             android:name="org.love2d.android.LoveDocumentsProvider"
             android:authorities="${applicationId}.documents"
@@ -40,6 +50,15 @@
             <intent-filter>
                 <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
             </intent-filter>
+        </provider>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.enginefiles"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/engine_file_paths" />
         </provider>
     </application>
 
