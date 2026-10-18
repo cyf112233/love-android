@@ -2,5 +2,4 @@
 <paths>
     <!-- .love files live in Android/data/<package>/files/games -->
     <external-files-path name="games" path="games/" />
-    <cache-path name="shader_compat" path="shader_compat/" />
 </paths>
